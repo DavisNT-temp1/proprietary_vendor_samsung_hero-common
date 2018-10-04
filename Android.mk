@@ -36,8 +36,12 @@ $(SYMLINKS):
 	@mkdir -p $@/lib64/hw
 	$(hide) ln -sf ../egl/libGLES_mali.so $@/lib/hw/vulkan.exynos5.so
 	$(hide) ln -sf ../egl/libGLES_mali.so $@/lib64/hw/vulkan.exynos5.so
-	@echo "Symlink: libOpenCL.so.1.1"
+	@echo "Symlink: libOpenCL.so"
+	$(hide) ln -sf egl/libGLES_mali.so $@/lib/libOpenCL.so
+	$(hide) ln -sf egl/libGLES_mali.so $@/lib/libOpenCL.so.1
 	$(hide) ln -sf egl/libGLES_mali.so $@/lib/libOpenCL.so.1.1
+	$(hide) ln -sf egl/libGLES_mali.so $@/lib64/libOpenCL.so
+	$(hide) ln -sf egl/libGLES_mali.so $@/lib64/libOpenCL.so.1
 	$(hide) ln -sf egl/libGLES_mali.so $@/lib64/libOpenCL.so.1.1
 
 ALL_MODULES.$(LOCAL_MODULE).INSTALLED := \
